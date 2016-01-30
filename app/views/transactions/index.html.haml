@@ -1,0 +1,19 @@
+.container
+  %table.table
+    %tr
+      %th Merchant
+      %th Date
+      %th Category
+      %th Amount
+      %th Balance
+
+    - @transactions.each do |transaction|
+      %tr
+        %td= transaction.merchant.try(:name) || (transaction.is_load ? 'Mondo' : 'Unknown')
+        %td= transaction.created.to_s(:short)
+        %td
+          = transaction.category.titleize
+          = transaction.merchant.try(:emoji)
+        %td{class: transaction.amount.to_i > 0 ? 'alert-success' : 'alert-danger'}
+          = transaction.amount.format
+        %td= transaction.account_balance.format
