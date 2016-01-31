@@ -1,0 +1,37 @@
+<script>
+$(document).ready(function() {
+  var map = L.map('map', {
+  })
+
+  var bounds = new L.LatLngBounds([
+    <% @transactions.each do |transaction| %>
+      [<%= transaction.merchant.address.latitude %>, <%= transaction.merchant.address.longitude%>],
+    <% end %>
+  ]);
+
+  map.fitBounds(bounds);
+
+  L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+  }).addTo(map);
+
+
+  <% @transactions.each do |transaction| %>
+    var icon = L.icon({
+        iconUrl: '<%= transaction.merchant.logo %>',
+        iconRetinaUrl: '<%= transaction.merchant.logo %>',
+        iconSize: [38, 38],
+        iconAnchor: [22, 70],
+        popupAnchor: [-3, -76],
+        shadowSize: [68, 95],
+        shadowAnchor: [22, 94]
+    });
+
+    L.marker([<%= transaction.merchant.address.latitude %>, <%= transaction.merchant.address.longitude%>], { icon: icon }).addTo(map)
+        .bindPopup("<%= transaction.merchant.name %>")
+        .openPopup();
+  <% end %>
+
+});
+
+</script>

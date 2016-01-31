@@ -7,7 +7,11 @@ Rails.application.routes.draw do
       put :unfreeze
     end
 
-    resources :transactions, only: [:index, :show]
+    resources :transactions, only: [:index, :show] do
+      collection do
+        get :map        
+      end
+    end
   end
 
   resources :sessions, only: [:new] do
