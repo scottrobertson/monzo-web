@@ -11,4 +11,5 @@ MONDO_API_URL=https://api.getmondo.co.uk
 MONDO_AUTH_URL=https://auth.getmondo.co.uk
 ```
 - `bundle install`
+- Update `config/secrets.yml`
 - `rails s`
