@@ -60,3 +60,12 @@
     %tr
       %th Address
       %td= @transaction.merchant.address.short_formatted
+
+
+  - if @transaction.attachments.any?
+    %hr
+    - @transaction.attachments.each do |attachment|
+      .col-xs-6.col-md-3
+        %a{href: attachment.url}
+          .thumbnail
+            %img{src: attachment.url, style: 'width: 250px'}
