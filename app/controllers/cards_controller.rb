@@ -5,13 +5,13 @@ class CardsController < ApplicationController
 
   def freeze
     @card = mondo.cards(account_id: account_id).select { |c| c.id == params[:card_id] }.first
-    @card.freeze!
+    @card.freeze
     redirect_to :back
   end
 
   def unfreeze
     @card = mondo.cards(account_id: account_id).select { |c| c.id == params[:card_id] }.first
-    @card.unfreeze!
+    @card.unfreeze
     redirect_to :back
   end
 end

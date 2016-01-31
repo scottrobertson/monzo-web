@@ -36,7 +36,8 @@
     %img{src: @transaction.merchant.logo, style: 'width: 30px'}
     = "#{@transaction.amount.abs.format} at #{@transaction.merchant.name}"
 
-  %p= @transaction.notes if @transaction.notes
+  - if @transaction.notes.present?
+    %p.well.well-sm= @transaction.notes
 
   %table.table
     %tr

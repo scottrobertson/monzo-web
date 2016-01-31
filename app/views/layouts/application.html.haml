@@ -19,7 +19,8 @@
           %ul.nav.navbar-nav
             = active_link_to 'Accounts', accounts_path, wrap_tag: :li, active: :exclusive
             - if account_id
-              = active_link_to 'Transactions', account_transactions_path(account_id), wrap_tag: :li
+              = active_link_to 'Transactions', account_transactions_path(account_id), wrap_tag: :li, active: :exclusive
+              = active_link_to 'Map', map_account_transactions_path(account_id), wrap_tag: :li
               = active_link_to 'Cards', account_cards_path(account_id), wrap_tag: :li
           %ul.nav.navbar-nav.navbar-right
             - if account_id
