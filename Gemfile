@@ -9,6 +9,7 @@ gem 'table_for_collection'
 gem 'haml'
 gem 'sass'
 gem 'active_link_to'
+gem 'uglifier'
 
 group :development, :test do
   gem 'byebug'
