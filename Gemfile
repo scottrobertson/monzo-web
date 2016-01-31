@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '4.2.4'
 gem 'dotenv-rails'
+gem 'jquery-rails'
 gem 'oauth2'
 gem 'mondo', github: 'scottrobertson/mondo-ruby', branch: 'master'
 gem 'table_for_collection'
@@ -20,4 +21,5 @@ end
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-bootstrap'
+  gem 'rails-assets-leaflet'
 end

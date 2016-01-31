@@ -1,0 +1,14 @@
+.container
+  %table.table
+    %tr
+      %th Account
+      %th Number
+      %th Sort Code
+      %th Balance
+
+    - @accounts.each do |account|
+      %tr
+        %td= link_to account.description, account_transactions_path(account.id)
+        %td= account.account_number
+        %td= account.sort_code
+        %td= account.balance.balance.format

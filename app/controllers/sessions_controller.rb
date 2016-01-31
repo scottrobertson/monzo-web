@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
 
   skip_before_filter :authenticate, only: [:new, :callback]
+  skip_before_action :ensure_account, only: [:new, :callback]
 
   def new
     redirect_to MondoService.authorize_url(redirect_uri: callback_sessions_url)
@@ -16,6 +17,6 @@ class SessionsController < ApplicationController
     end
 
 
-    redirect_to transactions_path
+    redirect_to accounts_path
   end
 end

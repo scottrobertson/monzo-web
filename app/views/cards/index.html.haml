@@ -1,0 +1,18 @@
+.container
+  %table.table
+    %tr
+      %th Card
+      %th Expires
+      %th Status
+      %th Action
+
+    - @cards.each do |card|
+      %tr
+        %td= card.last_digits
+        %td= card.expires
+        %td= card.status.titleize
+        %td
+          - if card.active?
+            = link_to 'Freeze', account_card_freeze_path(account_id, card.id), method: :put, class: 'btn btn-xs btn-danger'
+          - else
+            = link_to 'Unfreeze', account_card_unfreeze_path(account_id, card.id), method: :put, class: 'btn btn-xs btn-success'

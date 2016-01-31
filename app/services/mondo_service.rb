@@ -1,11 +1,29 @@
 class MondoService
-  def initialize(token)
+  def initialize(token, account_id = nil)
     @token = token
-    @client = Mondo::Client.new(token: @token)
+    @account_id = account_id
+    @client = Mondo::Client.new(token: @token, account_id: @account_id)
   end
-  
+
   def transactions(*options)
     @client.transactions(*options).reverse
+  end
+
+  def transaction(id, options = {})
+    options[:account_id] = @account_id
+    @client.transaction(id, options)
+  end
+
+  def cards(*options)
+    @client.cards(*options)
+  end
+
+  def accounts(*options)
+    @client.accounts(*options)
+  end
+
+  def balance
+    @client.balance
   end
 
   def self.client(site: :auth)
