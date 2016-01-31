@@ -51,7 +51,9 @@
       %td= @transaction.amount.format
     %tr
       %th Category
-      %td= @transaction.category.titleize
+      %td
+        = @transaction.category.titleize
+        = @transaction.merchant.try(:emoji)
     %tr
       %th Balance
       %td= @transaction.account_balance.format
