@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
       token = MondoService.token_from_code(params[:code], redirect_uri: callback_sessions_url)
       cookies.permanent.signed[:mondo_token] = {
        value: token,
-       secure: !Rails.env.development?
+       secure: false
       }
     end
 
