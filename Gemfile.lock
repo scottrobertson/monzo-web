@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/scottrobertson/mondo-ruby.git
-  revision: f4270941561a062a82cfc21c35b893fed6e4291d
+  revision: d6b784973bf4b3cba5b6ed10438bc1ff2685a3b1
   branch: master
   specs:
     mondo (0.4.7)
