@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
   end
 
   def balance
-    mondo.balance
+    mondo.balance(account_id)
   end
 
   def logout!

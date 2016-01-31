@@ -22,8 +22,8 @@ class MondoService
     @client.accounts(*options)
   end
 
-  def balance
-    @client.balance
+  def balance(*options)
+    @client.balance(*options)
   end
 
   def self.client(site: :auth)
