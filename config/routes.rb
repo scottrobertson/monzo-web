@@ -9,7 +9,8 @@ Rails.application.routes.draw do
 
     resources :transactions, only: [:index, :show] do
       collection do
-        get :map        
+        get :map
+        get :list        
       end
     end
   end

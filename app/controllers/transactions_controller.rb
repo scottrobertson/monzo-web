@@ -3,6 +3,11 @@ class TransactionsController < ApplicationController
     @transactions = mondo.transactions(expand: [:merchant], account_id: account_id)
   end
 
+  def list
+    @transactions = mondo.transactions(expand: [:merchant], account_id: account_id)
+    render 'list', layout: false
+  end
+
   def show
     @transaction = mondo.transaction(params[:id])
   end

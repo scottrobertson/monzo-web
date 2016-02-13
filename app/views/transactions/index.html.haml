@@ -1,21 +1,2 @@
 .container
-  %table.table
-    %tr
-      %th Merchant
-      %th Date
-      %th Category
-      %th Amount
-      %th Balance
-    - @transactions.each do |transaction|
-      %tr
-        %td
-          = link_to (transaction.merchant.try(:name) || (transaction.is_load ? 'Mondo' : 'Unknown')), account_transaction_path(account_id, transaction.id)
-          - if transaction.declined?
-            %span.text-danger= '(delined)'
-        %td= transaction.created.to_s(:short)
-        %td
-          = transaction.category.titleize
-          = transaction.merchant.try(:emoji)
-        %td{class: transaction.amount.to_i > 0 ? 'alert-success' : 'alert-danger'}
-          = transaction.amount.format
-        %td= transaction.account_balance.format
+  = async_partial list_account_transactions_path(account_id)
