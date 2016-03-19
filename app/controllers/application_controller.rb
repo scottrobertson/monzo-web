@@ -8,10 +8,10 @@ class ApplicationController < ActionController::Base
   helper_method :account_id
   attr_accessor :account_id
 
-  # rescue_from 'Mondo::ApiError' do |exception|
-  #   logout!
-  #   redirect_to new_session_path
-  # end
+  rescue_from 'Mondo::ApiError' do |exception|
+    logout!
+    redirect_to new_session_path
+  end
 
   def ensure_account
     @account_id = params[:account_id]
