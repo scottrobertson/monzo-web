@@ -13,7 +13,7 @@ class TransactionsController < ApplicationController
 
   def map
     @transactions = mondo
-      .transactions(expand: [:merchant], account_id: account_id, limit: 100)
+      .transactions(expand: [:merchant], account_id: account_id, since: 30.days.ago.utc.strftime('%FT%TZ'))
       .select { |t| t.merchant && !t.merchant.online?  }
   end
 end

@@ -18,8 +18,8 @@ $(document).ready(function() {
 
   <% @transactions.each do |transaction| %>
     var icon = L.icon({
-        iconUrl: '<%= transaction.merchant.logo %>',
-        iconRetinaUrl: '<%= transaction.merchant.logo %>',
+        iconUrl: '<%= transaction_logo(transaction) %>',
+        iconRetinaUrl: '<%= transaction_logo(transaction) %>',
         iconSize: [38, 38],
         iconAnchor: [22, 70],
         popupAnchor: [-3, -76],
@@ -28,8 +28,7 @@ $(document).ready(function() {
     });
 
     L.marker([<%= transaction.merchant.address.latitude %>, <%= transaction.merchant.address.longitude%>], { icon: icon }).addTo(map)
-        .bindPopup("<%= transaction.merchant.name %>")
-        .openPopup();
+        .bindPopup("<%= transaction.merchant.name %>");
   <% end %>
 
 });

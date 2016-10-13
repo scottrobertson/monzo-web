@@ -13,8 +13,8 @@
       }).addTo(map);
 
       var icon = L.icon({
-          iconUrl: '#{@transaction.merchant.logo}',
-          iconRetinaUrl: '#{@transaction.merchant.logo}',
+          iconUrl: '#{transaction_logo(@transaction)}',
+          iconRetinaUrl: '#{transaction_logo(@transaction)}',
           iconSize: [38, 38],
           iconAnchor: [22, 70],
           popupAnchor: [-3, -76],
@@ -33,7 +33,7 @@
     %p.alert.alert-danger= "This transaction was declined. The reason given was: #{@transaction.decline_reason}"
 
   #h1.lead
-    %img{src: @transaction.merchant.logo, style: 'width: 30px'}
+    %img{src: transaction_logo(@transaction), style: 'width: 30px'}
     = "#{@transaction.amount.abs.format} at #{@transaction.merchant.name}"
 
   - if @transaction.notes.present?
