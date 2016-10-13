@@ -4,5 +4,8 @@ class AccountsController < ApplicationController
 
   def index
     @accounts = mondo.accounts
+    if @accounts.count == 1
+      return redirect_to account_transactions_path(@accounts.first.id)
+    end
   end
 end
