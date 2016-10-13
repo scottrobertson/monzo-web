@@ -3,7 +3,7 @@ class TransactionsController < ApplicationController
   end
 
   def list
-    @transactions = mondo.transactions(expand: [:merchant], account_id: account_id, since: 7.days.ago)
+    @transactions = mondo.transactions(expand: [:merchant], account_id: account_id, since: 7.days.ago.utc.strftime('%FT%TZ'))
     render 'list', layout: false
   end
 
