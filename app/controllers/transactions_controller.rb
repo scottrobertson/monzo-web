@@ -1,10 +1,9 @@
 class TransactionsController < ApplicationController
   def index
-    @transactions = mondo.transactions(expand: [:merchant], account_id: account_id)
   end
 
   def list
-    @transactions = mondo.transactions(expand: [:merchant], account_id: account_id)
+    @transactions = mondo.transactions(expand: [:merchant], account_id: account_id, since: 7.days.ago)
     render 'list', layout: false
   end
 
