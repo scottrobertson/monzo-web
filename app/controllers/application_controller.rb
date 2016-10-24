@@ -9,6 +9,8 @@ class ApplicationController < ActionController::Base
   attr_accessor :account_id
 
   rescue_from 'Mondo::ApiError' do |exception|
+    raise if Rails.env.development?
+    
     logout!
     redirect_to new_session_path
   end

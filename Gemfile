@@ -12,6 +12,8 @@ gem 'sass'
 gem 'active_link_to'
 gem 'uglifier'
 
+gem 'puma'
+
 group :development, :test do
   gem 'byebug'
 end
