@@ -1,7 +1,7 @@
 !!!
 %html
   %head
-    %title MondoWeb
+    %title Monzo
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
@@ -14,7 +14,7 @@
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          %a.navbar-brand{:href => "#"} MondoWeb
+          %a.navbar-brand{:href => "#"} Monzo
         #bs-example-navbar-collapse-1.collapse.navbar-collapse
           %ul.nav.navbar-nav
             = active_link_to 'Accounts', accounts_path, wrap_tag: :li, active: :exclusive

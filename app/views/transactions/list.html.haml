@@ -9,7 +9,7 @@
     %tr
       %td
         = image_tag transaction_logo(transaction), width: 20
-        = link_to (transaction.merchant.try(:name) || (transaction.is_load ? 'Mondo' : 'Unknown')), account_transaction_path(account_id, transaction.id)
+        = link_to (transaction.merchant.try(:name) || (transaction.is_load ? 'Monzo' : 'Unknown')), account_transaction_path(account_id, transaction.id)
         - if transaction.declined?
           %span.text-danger= '(delined)'
       %td= transaction.created.to_s(:short)
