@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
 
   rescue_from 'Mondo::ApiError' do |exception|
     raise if Rails.env.development?
-    
+
     logout!
     redirect_to new_session_path
   end
@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
   end
 
   def balance
-    mondo.balance(account_id)
+    @_balance ||= mondo.balance(account_id)
   end
 
   def logout!
